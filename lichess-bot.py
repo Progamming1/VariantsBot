@@ -229,13 +229,6 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
 
-    class SendLine:
-        def __init__(self, room):
-            self.room = room
-    opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
-    conversation.send_reply(SendLine('player'), f'Good Luck @{opponent}')
-    conversation.send_reply(SendLine('spectator'), f'Good Luck @{opponent}')
-    
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
@@ -306,9 +299,6 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
                 break
         except StopIteration:
             break
-    
-    conversation.send_reply(SendLine('player'), f'Good Game')
-    conversation.send_reply(SendLine('spectator'), f'Good Game')
 
     engine.stop()
     engine.quit()
