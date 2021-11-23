@@ -56,13 +56,13 @@ move_overhead: 100           # Increase if your bot flags games too often.
 correspondence:
     move_time: 60            # Time in seconds to search in correspondence games.
     checkin_period: 600      # How often to check for opponent moves in correspondence games after disconnecting.
-    disconnect_time: 300     # Time before disconnecting from a correspondence game.
+    disconnect_time: 10      # Time before disconnecting from a correspondence game.
     ponder: false            # Ponder in correspondence games the bot is connected to.
 
 challenge:                   # Incoming challenges.
   concurrency: 1             # Number of games to play simultaneously.
   sort_by: "best"            # Possible values: "best" and "first".
-  accept_bot: false          # Accepts challenges coming from other bots.
+  accept_bot: true           # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 0           # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
