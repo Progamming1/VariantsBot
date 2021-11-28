@@ -1,4 +1,4 @@
-token: "lip_yIqCe0zVTy4cWL9wAjDG"    # Lichess OAuth2 Token.
+token: "lip_tznOCuCrtjv4wrZ6eoJo"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
@@ -26,8 +26,8 @@ engine:                      # Engine settings.
 #   Hash: 256  
   uci_options:               # Arbitrary UCI options passed to the engine.
     Move Overhead: 100       # Increase if your bot flags games too often.
-    Threads: 4             # Max CPU threads the engine can use.
-    Hash: 500                # Max memory (in megabytes) the engine can allocate.
+    Threads: 2               # Max CPU threads the engine can use.
+    Hash: 250                # Max memory (in megabytes) the engine can allocate.
     Skill Level: 20                                
     Use NNUE: true           # allow bot to use neural networks
     EvalFile: atomic-36ea696742e1.nnue:kingofthehill-86a538a53974.nnue:3check-3ed5960cfcf3.nnue:racingkings-67476a9e2e20.nnue  
@@ -69,11 +69,11 @@ challenge:                   # Incoming challenges.
   max_base: 315360000        # Maximum amount of base time to accept a challenge. The max is 315360000 (10 years).
   min_base: 0                # Minimum amount of base time to accept a challenge.
   variants:                  # Chess variants to accept (https://lichess.org/variant).
-#   - standard
+    - standard
 #   - fromPosition
     - antichess
     - atomic
-#   - chess960
+    - chess960
     - crazyhouse
     - horde
     - kingOfTheHill
