@@ -17,20 +17,20 @@ engine:                      # Engine settings.
         - engines/smartatomic.bin
 #     etc.
 #     Use the same pattern for 'giveaway' (antichess), 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
-    min_weight: 100            # Does not select moves with weight below min_weight (min 0, max: 65535).
+    min_weight: 1            # Does not select moves with weight below min_weight (min 0, max: 65535).
     selection: "best_move" # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
-    max_depth: 100           # Half move max depth.
-     online_moves:
+    max_depth: 100            # Half move max depth.
+  online_moves:
     chessdb_book:
       enabled: true
       min_time: 20
-      move_quality: "best"     # One of "all", "good", "best"
+      move_quality: "good"     # One of "all", "good", "best"
       min_depth: 20            # Only for move_quality: "best"
       contribute: true
     lichess_cloud_analysis:
       enabled: true
       min_time: 20
-      move_quality: "best"     # One of "good", "best"
+      move_quality: "good"     # One of "good", "best"
       max_score_difference: 50 # Only for move_quality: "good". The maximum score difference (in cp) between the best move and the other moves.
       min_depth: 20
       min_knodes: 0
@@ -42,17 +42,12 @@ engine:                      # Engine settings.
       move_quality: "best"     # One of "good", "best"
 # engine_options:            # Any custom command line params to pass to the engine.
 #   cpuct: 3.1
-# engine_options:            # Any custom command line params to pass to the engine.
-#   cpuct: 3.1
   homemade_options:
 #   Hash: 256  
   uci_options:               # Arbitrary UCI options passed to the engine.
     Move Overhead: 100       # Increase if your bot flags games too often.
     Threads: 2               # Max CPU threads the engine can use.
-    Hash: 250                # Max memory (in megabytes) the engine can allocate.
-    Skill Level: 20                                
-    Use NNUE: true           # allow bot to use neural networks
-    EvalFile: atomic-36ea696742e1.nnue:kingofthehill-86a538a53974.nnue:3check-3ed5960cfcf3.nnue:racingkings-67476a9e2e20.nnue  
+    Hash: 256                # Max memory (in megabytes) the engine can allocate.
 #   go_commands:             # Additional options to pass to the UCI go command.
 #     nodes: 1               # Search so many nodes only.
 #     depth: 5               # Search depth ply only.
@@ -91,11 +86,11 @@ challenge:                   # Incoming challenges.
   max_base: 315360000        # Maximum amount of base time to accept a challenge. The max is 315360000 (10 years).
   min_base: 0                # Minimum amount of base time to accept a challenge.
   variants:                  # Chess variants to accept (https://lichess.org/variant).
- #  - standard
-    - fromPosition
+#   - standard
+#   - fromPosition
     - antichess
     - atomic
- #  - chess960
+#   - chess960
     - crazyhouse
     - horde
     - kingOfTheHill
@@ -109,5 +104,4 @@ challenge:                   # Incoming challenges.
 #   - correspondence
   modes:                     # Game modes to accept.
     - casual                 # Unrated games.
-    - rated                  # Rated games - must comment if the engine doesn't try to win
-
+    - rated                  # Rated games - must comment if the engine doesn't try to win.
